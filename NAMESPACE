@@ -1,0 +1,3 @@
+useDynLib(netClust, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")

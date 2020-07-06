@@ -1,0 +1,15 @@
+d50ecba3096e5be819b1cc4f9cd98511 *DESCRIPTION
+215c20641579acf7040d41050dd5282e *NAMESPACE
+11e097b9e3c3013de954a6a0d071ee72 *R/RcppExports.R
+4117955920c51dcd0fa42754a5a970a1 *build/partial.rdb
+646097a070655908bbc02a3d5d2e82ef *data/netData.RData
+cd74d3ad15f8e3a9282510d1112836e2 *data/netDataID.RData
+6cd348ac09970351de4a8118458857e7 *man/netClust-package.Rd
+a757a5fa26314c789bdbb18c642d8d86 *man/netData.Rd
+9998bd4eeea28c7769c13b3d0bb18bdd *man/netDataID.Rd
+f28cc09ff86d4f120674331c33f62f6a *man/netEM_multilayer.Rd
+5d40ff592c838919c6ef07fcc48ca610 *man/netEM_unilayer.Rd
+61059660eb073d93e00e8ee054237071 *src/Makevars
+61059660eb073d93e00e8ee054237071 *src/Makevars.win
+30739c7a98eea68d360950c6d1eadfa6 *src/RcppExports.cpp
+9434bbb5a4f970354ca8de656828ec4c *src/netClust.cpp
