@@ -782,8 +782,8 @@ List EMC(arma::cube x, arma::vec tau, arma::cube Mu, arma::field<arma::mat> Sigm
   }
   
   int M = (K - 1) + K*K + 2*K + 3*K*(K-1)/2;
-  double BIC = -2 * ll + M * log(n*(n-1)/2);
-  double AIC = -2 * ll + M * 2;
+  double BIC = -2 * ll + M * log(n*(n-1)/2.0);
+  double AIC = -2 * ll + M * 2.0;
   
   List ret;
   ret["Pi"] = Pi;
@@ -1012,7 +1012,7 @@ List netEM_uni(arma::cube x, int K, double eps, int num_rand_start, int num_run_
   double ll = EMR["ll"];
   
   double M = (K - 1) + K*K + 2*K + K*(K-1) + 0.5*K*(K-1);
-  double BIC = -2 * ll  + M * log(n*(n-1)/2);
+  double BIC = -2 * ll  + M * log(n*(n-1)/2.0);
   
   List ret;
   ret["Pi"] = EMR["Pi"];
@@ -1147,7 +1147,8 @@ double logLindep_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma:
       arma::mat xMat = x(i,j);
       arma::rowvec xVec (2*p);
       for (int l=0; l < 2*p; l++){
-        int q = floor(l/2);
+        float a = floor(l/2.0);
+        int q = (int) a;
         int r = l - 2*q;
         xVec(l) = xMat(r,q);
       } 
@@ -1156,7 +1157,8 @@ double logLindep_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma:
           arma::mat MuMat = Mu(k,m);
           arma::rowvec MuVec (2*p);
           for (int l=0; l < 2*p; l++){
-            int q = floor(l/2);
+            float a = floor(l/2.0);
+            int q = (int) a;
             int r = l - 2*q;
             MuVec(l) = MuMat(r,q);
           }
@@ -1185,7 +1187,8 @@ List ll_seq_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma::mat>
       arma::rowvec xVec (2*p);
       arma::rowvec MuVec (2*p);
       for (int l=0; l < 2*p; l++){
-        int q = floor(l/2);
+        float a = floor(l/2.0);
+        int q = (int) a;
         int r = l - 2*q;
         xVec(l) = xMat(r,q);
         MuVec(l) = MuMat(r,q);
@@ -1252,7 +1255,8 @@ List EStep_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma::mat> 
             arma::vec xVec (2*p);
             arma::vec MuVec (2*p);
             for (int l=0; l < 2*p; l++){
-              int q = floor(l/2);
+              float a = floor(l/2.0);
+              int q = (int) a;
               int r = l - 2*q;
               xVec(l) = xMat(r,q);
               MuVec(l) = MuMat(r,q);
@@ -1312,7 +1316,8 @@ List EStep_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma::mat> 
             arma::vec xVec (2*p);
             arma::vec MuVec (2*p);
             for (int l=0; l < 2*p; l++){
-              int q = floor(l/2);
+              float a = floor(l/2.0);
+              int q = (int) a;
               int r = l - 2*q;
               xVec(l) = xMat(r,q);
               MuVec(l) = MuMat(r,q);
@@ -1601,7 +1606,8 @@ double logLSeq_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma::m
         arma::rowvec xVec (2*p);
         arma::rowvec MuVec (2*p);
         for (int l=0; l < 2*p; l++){
-          int q = floor(l/2);
+          float a = floor(l/2.0);
+          int q = (int) a;
           int r = l - 2*q;
           xVec(l) = xMat(r,q);
           MuVec(l) = MuMat(r,q);
@@ -1835,8 +1841,8 @@ List EMC_mult(arma::field<arma::mat> x, arma::vec tau, arma::field<arma::mat> Mu
   }
   
   int M = (K - 1) + K*K + 2*K + 3*K*(K-1)/2 + K*p*(p-1)/2;
-  double BIC = -2 * ll + M * log(n*(n-1)/2);
-  double AIC = -2 * ll + M * 2;
+  double BIC = -2 * ll + M * log(n*(n-1)/2.0);
+  double AIC = -2 * ll + M * 2.0;
   
   List ret;
   ret["Pi"] = Pi;
@@ -1864,7 +1870,9 @@ List netEM_mult(NumericVector y, int K, int p, double eps, int num_rand_start, i
       int ctr = 0;
       for (int l = 0; l < p; l++){
         for (int k = 0; k < 2; k++){
-          int d = ctr*pow(n,2) + j*n + i;
+          float a = pow(n,2.0);
+          int aa = (int) a;
+          int d = ctr*aa + j*n + i;
           xMat(k,l) = y(d);
           ctr = ctr+1;
         }
@@ -2009,7 +2017,7 @@ List netEM_mult(NumericVector y, int K, int p, double eps, int num_rand_start, i
   double ll = EMR["ll"];
   
   int M = (K - 1) + K*K + 2*K + K*(K-1) + 0.5*K*(K-1) + K*p*(p-1)/2;
-  double BIC = -2 * ll  + M * log(n*(n-1)/2);
+  double BIC = -2 * ll  + M * log(n*(n-1)/2.0);
   
   List ret;
   ret["Pi"] = EMR["Pi"];
@@ -2128,7 +2136,9 @@ List netEM_multilayer(NumericVector y, int K, int p, double eps, int num_rand_st
         int ctr = 0;
         for (int l = 0; l < p; l++){
           for (int k = 0; k < 2; k++){
-            int d = ctr*pow(n,2) + j*n + i;
+            float a = pow(n,2.0);
+            int aa = (int) a;
+            int d = ctr*aa + j*n + i;
             xMat(k,l) = y(d);
             if (xMat(k,l) != 0){
               stop = 1;

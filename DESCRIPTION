@@ -1,7 +1,7 @@
 Package: netClust
 Type: Package
 Title: Model-Based Clustering of Network Data
-Version: 1.0
+Version: 1.0.1
 Date: 2020-06-09
 Author: Shuchismita Sarkar [aut, cre],
   Volodymyr Melnykov [aut] 
@@ -13,7 +13,7 @@ LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2020-07-05 06:15:05 UTC; shuch
+Packaged: 2020-07-06 23:52:50 UTC; shuch
 Depends: R (>= 3.5.0)
 Repository: CRAN
-Date/Publication: 2020-07-06 09:30:07 UTC
+Date/Publication: 2020-07-07 09:30:02 UTC
